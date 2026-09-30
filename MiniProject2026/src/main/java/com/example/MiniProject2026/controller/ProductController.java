@@ -52,4 +52,13 @@ public class ProductController {
     public String getCategory(@PathVariable int id) {
         return productService.getCategory(id);
     }
+
+    @PutMapping("/product/{pid}/stock")
+    public Product updateProduct(@PathVariable int pid , @RequestParam int quantity){
+        return productService.updateStock(pid , quantity);
+    }
+    @PutMapping("/product/{pid}/available")
+    public Product setAvailability(@PathVariable int pid, @RequestParam boolean status) {
+        return productService.setAvailability(pid, status);
+    }
 }

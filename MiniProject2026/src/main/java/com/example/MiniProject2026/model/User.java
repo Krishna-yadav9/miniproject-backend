@@ -1,6 +1,7 @@
 package com.example.MiniProject2026.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Users")
@@ -9,6 +10,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @JsonIgnore
     private String password;
     private String role;
 

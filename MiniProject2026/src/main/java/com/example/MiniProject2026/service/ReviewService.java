@@ -13,7 +13,8 @@ public class ReviewService {
     public ReviewRepository reviewRepository;
 
     public Review addReview(Review review){
-       return  reviewRepository.save(review);
+        review.setCreatedAt(java.time.LocalDateTime.now());
+        return  reviewRepository.save(review);
     }
     public List<Review> getReviewByProduct(Long pid){
         return reviewRepository.findByProductPid(pid);

@@ -55,4 +55,25 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
         return product.getCategory();
     }
+
+    public Product updateStock(int pid, int quantity) {
+        Product product = adminRepository.findById(pid)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + pid));
+        product.setStock(quantity);
+        return adminRepository.save(product);
+    }
+    public Product setAvailability(int pid, boolean status) {
+        Product product = adminRepository.findById(pid)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + pid));
+        product.setAvailable(status);
+        return adminRepository.save(product);
+    }
+
+    public List<Product> getLowStock(int threshold) {
+        return adminRepository.findByStockLessThanEqual(threshold);
+    }
+
+    public List<Product> getUnavailable() {
+        return adminRepository.findByAvailableFalse();
+    }
 }

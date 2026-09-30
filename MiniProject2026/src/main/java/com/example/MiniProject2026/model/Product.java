@@ -14,6 +14,7 @@ public class Product {
     private double price;
     private int stock;
     private String category;
+    private Boolean available = true;
 
     public int getPid() { return pid; }
     public void setPid(int pid) { this.pid = pid; }
@@ -29,6 +30,9 @@ public class Product {
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
+
+    public Boolean getAvailable() { return available; }
+    public void setAvailable(Boolean available) { this.available = available; }
 
     @Override
     public String toString() {

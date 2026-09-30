@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     Product findByPname(String pname);
+    java.util.List<Product> findByStockLessThanEqual(int stock);
 
+    java.util.List<Product> findByAvailableFalse();
 }

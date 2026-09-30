@@ -1,5 +1,6 @@
 package com.example.MiniProject2026.model;
 
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,6 +11,7 @@ public class Admin {
     private int id;
     private String name;
     private String password;
+
 
     public int getId() {
         return id;

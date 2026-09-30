@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth-> auth
                         // In filterChain, update permitAll block:
                         .requestMatchers("/auth/**", "/error").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated()
 
                 )
